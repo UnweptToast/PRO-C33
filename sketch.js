@@ -25,8 +25,14 @@ function setup() {
   world = engine.world;
   ground = new Ground(width/2,height,width,20);
 
+  var s = Math.round(random(0,1))
   for(var d = 1; d <=10; d++) {
-    d1.push(Math.round(random(0, 150)))
+    if(d%2 == s) {
+      d1.push(Math.round(random(0, 150)))
+    }
+    else {
+      d1.push(Math.round(random(0, -150)))
+    }
   }
 
    for (var k = 0; k <=width; k = k + 80) {
@@ -105,7 +111,7 @@ function draw() {
     //console.log(chances)
    }
 
-   if(score > 950) {
+   if(score > 850) {
     textSize(80);text("You Won!", width/2 - 150, height/3 - 10);
    gameState = "over"
    }
